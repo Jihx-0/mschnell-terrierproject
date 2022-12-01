@@ -1,0 +1,53 @@
+table {
+table-layout: fixed;
+  width: 90%;
+  color: #727273;
+  box-sizing: border-box;
+  border-spacing: 0px;
+  margin:auto;
+
+  tr {
+    th {
+      border: 1px solid #b8babb;
+      height: 30px;
+    }
+    
+    td {
+      box-sizing: border-box;
+      border: 1px solid #b8babb;
+      height: 50px;
+  
+      .td-wrapper {
+        position: relative;
+        height: 100%;
+  
+        .block {
+          box-sizing: content-box;
+          position: absolute;
+          width: 100%;
+          background-color: #6bf556;
+          overflow: hidden;
+
+          div {
+            display: block;
+            position: relative;
+            text-align: center;
+            color:  #000000;
+          }
+        }
+
+        .time_between {
+            box-sizing: content-box;
+            position: absolute;
+            width: 100%;
+            overflow: hidden;
+            z-index: 99;
+          }
+        
+        .time_between:hover {
+        background-color: #727273;
+        }
+      }
+    }
+  }
+}

@@ -1,0 +1,48 @@
+<h2 style="text-align:center">
+  Work Orders -  10/1/19
+</h2>
+<table>
+  <tr>
+    <th>
+      Time
+    </th>
+    <% @technicians.each do |tech| %>
+      <th>
+        <%= tech.name %>
+      </th>
+    <% end %>
+  </tr>
+  <% (6..18).each do |time| %>
+    <tr>
+      <th>
+        <%= time.to_s.rjust(2,"0") + ":00:00" %>
+      </th>
+      <% @technicians.each do |technician| %>
+        <td>
+          <div class="td-wrapper">
+            <% if !@time_between[time].nil? && !@time_between[time][technician.id.to_s.to_sym].nil? %>
+              <% @time_between[time][technician.id.to_s.to_sym].each do |time_between_orders| %>
+                <div class = "time_between" 
+                    onclick="alert('<%= "There are #{time_between_orders[:duration]} minutes available between these orders."  %>')" style="height: <%=time_between_orders[:height] %>; top: <%= time_between_orders[:top] %>;">
+                </div>
+              <% end %>
+            <% end %>
+            <% if !@order_cells[time].nil? && !@order_cells[time][technician.id.to_s.to_sym].nil? %>
+              <% @order_cells[time][technician.id.to_s.to_sym].each do |order| %>
+                <div class = "block" style="height: <%=order[:height] %>; top: <%= order[:top] %>;">
+                  <div>
+                    <%= order[:work_order].location.name %>, <%= order[:work_order].location.city %>
+                    <%= order[:start_time] %>, 
+                    <%= order[:work_order].duration %> minutes,  
+                    $<%= order[:work_order].price %>
+                    <br>
+                  </div>
+                </div>
+              <% end %>
+            <% end %>
+          </div>
+        </td>
+      <% end %>
+    </tr>
+  <% end %>
+</table>
