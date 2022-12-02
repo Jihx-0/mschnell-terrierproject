@@ -4,8 +4,8 @@
 *   Developed on Windows 10
 
 ## How to Install
-*   Install the correct versions of the above and ensure the variables are added to your path.
-*   Download files/clones the repository to a folder
+*   Install the correct versions of the above and ensure the variables are added to your path and you have access to SQLite3 through the command line in your project directory.
+*   Download files/clone the repository to a folder
 *   Enter the folder containing the project, and run the command ```bundle_install``` to install packages from the gemfile
 *   Create a database - ```rake db:create```
 *   Run migrations - ```rake db:migrate```
